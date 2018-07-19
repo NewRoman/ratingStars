@@ -78,7 +78,7 @@
 			</p>
 			<div class="code">
 				in less use that mixin
-				.makeRatingCollections(@imagePathInactive: "../img/star_gray_small_collection.svg"; @imagePathActive: "../img/star_yellow_small_collection.svg"; @starWidth: 15px; @countStars: 5; @heightStars: 14px );
+				.makeRating(@imagePathInactive: "../img/star_gray_small_collection.svg"; @imagePathActive: "../img/star_yellow_small_collection.svg"; @starWidth: 15px; @countStars: 5; @heightStars: 14px );
 			</div>
 		</section>
 
@@ -102,7 +102,7 @@
 					show rating with only ONE star
 			</p>
 			<div class="code">
-					.makeRatingCollections(@imagePathInactive: "../img/star-big-collections.png"; @imagePathActive: "../img/star-big-collections.png"; @starWidth: 19px; @countStars: 1; @heightStars: 16px; @topActive: bottom; @topInactive: top; );
+					.makeRating(@imagePathInactive: "../img/star-big-collections.png"; @imagePathActive: "../img/star-big-collections.png"; @starWidth: 19px; @countStars: 1; @heightStars: 16px; @topActive: bottom; @topInactive: top; );
 			</div>
 			
 		</section>
@@ -113,24 +113,38 @@
 
 	<div class="outer">
 		<section class="left-main">
-			<div class="wrapp-drop" style="width: 300px;">
-
+			<div class="wrapp-drop with-set-rating" style="width: 300px;">
 				
+				<div class="stars-input">
+					<input id="star-4" class="star-4" type="radio" name="reviewStars"/>
+					<label title="gorgeous" for="star-4"></label>
+				
+					<input id="star-3" class="star-3" type="radio" name="reviewStars"/>
+					<label title="good" for="star-3"></label>
+				
+					<input id="star-2" class="star-2" type="radio" name="reviewStars"/>
+					<label title="regular" for="star-2"></label>
+				
+					<input id="star-1" class="star-1" type="radio" name="reviewStars"/>
+					<label title="poor" for="star-1"></label>
+				
+					<input id="star-0" class="star-0" type="radio" name="reviewStars"/>
+					<label title="bad" for="star-0"></label>
+				</div>
+
 			</div>
 		</section>
 
 		<section class="right-main">
 			<p class="wrapp-descr" style="width: 300px;">
-					List with icon left
+					Rating stars with set rating posibility
 			</p>
 			<div class="code">
-				$('.simple-list-drop-container').simple_list_drop({
-					isThumbnailShow: true
-				});
+				
 			</div>
-			and added some extra tags in HTML
+			
 			<div class="code">
-				add span(with <strong>[data-simpledrop-thumb]</strong>  attr and <strong>class="thumb"</strong> ) tag before text in list item with <strong>img</strong> tag
+					.makeRatingWithSet( @imagePathInactive: "../img/star-big-collections.png"; @imagePathActive: "../img/star-big-collections.png"; @starWidth: 19px; @countStars: 5; @heightStars: 16px; @topActive: bottom; @topInactive: top; );
 			</div>
 		</section>
 

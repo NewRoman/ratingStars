@@ -1,5 +1,5 @@
 
-.makeRatingCollections( @imagePathInactive: "star_gray_small_collection.svg"; @imagePathActive: "star_yellow_small_collection.svg"; @starWidth: 14px; @countStars: 5; @heightStars: 14px; @topActive: 0; @topInactive: 0; ){
+.makeRating( @imagePathInactive: "star_gray_small_collection.svg"; @imagePathActive: "star_yellow_small_collection.svg"; @starWidth: 14px; @countStars: 5; @heightStars: 14px; @topActive: 0; @topInactive: 0; ){
     
     .rating-stars {
 		background-image: url("@{imagePathInactive}");
@@ -27,10 +27,90 @@
 }
 
 .stars {
-	.makeRatingCollections(@imagePathInactive: "../img/star_gray_small_collection.svg"; @imagePathActive: "../img/star_yellow_small_collection.svg"; @starWidth: 15px; @countStars: 5; @heightStars: 14px; @topActive: 0; @topInactive: 0; );
+	.makeRating(@imagePathInactive: "../img/star_gray_small_collection.svg"; @imagePathActive: "../img/star_yellow_small_collection.svg"; @starWidth: 15px; @countStars: 5; @heightStars: 14px; @topActive: 0; @topInactive: 0; );
 
 }
 
 .one-star {
-	.makeRatingCollections(@imagePathInactive: "../img/star-big-collections.png"; @imagePathActive: "../img/star-big-collections.png"; @starWidth: 19px; @countStars: 1; @heightStars: 16px; @topActive: bottom; @topInactive: top; );
+	.makeRating(@imagePathInactive: "../img/star-big-collections.png"; @imagePathActive: "../img/star-big-collections.png"; @starWidth: 19px; @countStars: 1; @heightStars: 16px; @topActive: bottom; @topInactive: top; );
+}
+
+
+
+// stars with posibility to set that one
+.makeRatingWithSet( @imagePathInactive: "star_gray_small_collection.svg"; @imagePathActive: "star_yellow_small_collection.svg"; @starWidth: 14px; @countStars: 5; @heightStars: 14px; @topActive: 0; @topInactive: 0; ){
+
+    @index: 0; 
+    .positionStar (@index) when (@countStars >= @index) {
+        @nthChildNumber: @index;
+        .star-@{nthChildNumber} { 
+            background: url("@{imagePathInactive}") no-repeat;
+            left:  @index * @starWidth;
+        }
+    /* выполняем слудующую итерацию рекурсивно */
+    .positionStar(@index + 1);
+    }
+
+    .stars-input input:checked ~ label, 
+    .stars-input label,
+    .stars-input label:hover, 
+    .stars-input label:hover ~ label 
+    {
+        background-image: url("@{imagePathInactive}");
+        background-repeat: no-repeat;
+        // background-position: 0 ;
+    }
+    
+    .stars-input {
+        position: relative;
+        float: left;
+
+        input {
+            position: absolute;
+            top: 0;
+            z-index: 0;
+            
+            height: @heightStars;
+            width: @starWidth;
+            
+            opacity: 0;
+             
+            &:checked ~ label {
+                background-position: 0 -40px;
+                height: @heightStars;
+                width: @starWidth;
+            }
+        }
+
+        label {
+            position: relative;
+            z-index: 1;
+            
+            height: @heightStars;
+            width: @starWidth;
+            float: right;
+            margin-right: 10px;
+
+            background-position: 0 @topInactive;
+            cursor: pointer;
+            
+            &:hover, 
+            &:hover ~ label 
+            {
+                background-image: url("@{imagePathActive}");
+                background-position: 0 @topActive;
+                height: @heightStars;
+                width: @starWidth;
+            }
+        }
+    }
+
+
+}
+
+
+
+
+.with-set-rating {
+    .makeRatingWithSet( @imagePathInactive: "../img/star-big-collections.png"; @imagePathActive: "../img/star-big-collections.png"; @starWidth: 19px; @countStars: 5; @heightStars: 16px; @topActive: bottom; @topInactive: top; );
 }
