@@ -1,0 +1,36 @@
+
+.makeRatingCollections( @imagePathInactive: "star_gray_small_collection.svg"; @imagePathActive: "star_yellow_small_collection.svg"; @starWidth: 14px; @countStars: 5; @heightStars: 14px; @topActive: 0; @topInactive: 0; ){
+    
+    .rating-stars {
+		background-image: url("@{imagePathInactive}");
+		background-position: 0  @topInactive;
+		background-repeat: repeat-x;
+        // float: left;
+        height: @heightStars;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        width: @starWidth * @countStars;
+
+        .active-stars {
+			display: inline-block;
+            height: @heightStars;
+            
+			background-image: url("@{imagePathActive}");
+			background-position: 0 @topActive;
+			background-repeat: repeat-x;
+			z-index: 2;
+
+        }
+    }
+}
+
+.stars {
+	.makeRatingCollections(@imagePathInactive: "../img/star_gray_small_collection.svg"; @imagePathActive: "../img/star_yellow_small_collection.svg"; @starWidth: 15px; @countStars: 5; @heightStars: 14px; @topActive: 0; @topInactive: 0; );
+
+}
+
+.one-star {
+	.makeRatingCollections(@imagePathInactive: "../img/star-big-collections.png"; @imagePathActive: "../img/star-big-collections.png"; @starWidth: 19px; @countStars: 1; @heightStars: 16px; @topActive: bottom; @topInactive: top; );
+}

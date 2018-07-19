@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Star reviews rating</title>
+    
+	<link href="css/main.min.css" rel="stylesheet">
+	<style>
+		body {
+			background-image: url('img/bg.jpg');
+
+			color: #333;
+		}
+		h2 {
+			padding: 5px 10px;
+			margin: 25px auto 15px auto;
+			width: 900px;
+
+			background-color: #FFF;
+
+			text-align: center;
+			
+		}
+		.left-main,
+		.right-main {
+			float: left;
+			vertical-align: top;
+			margin-right: 40px;
+			width: 400px;
+		}
+		p {
+			margin-bottom: 26px;
+			font-size: 18px;
+		}
+		.code {
+			padding: 15px 10px;
+			background: #EEE;
+		}
+		.right-main {
+			float: right;
+			margin-right: 0;
+		}
+		.outer {
+			width: 900px;
+			margin: 25px auto;
+			padding: 25px 20px;
+
+			border: 1px solid #444;
+			background-color: #FFF;
+		}
+		.clear {
+			clear: both;
+		}
+	</style>
+  </head>
+  <body>
+
+	<h2>Star reviews rating</h2>
+
+	<div class="outer">
+		<section class="left-main">
+			<div class="wrapp-drop stars" style="width: 300px;">
+				<div class="rating-block ">
+					<ul class="rating-stars">
+						<li class="active-stars" style="width: 80%;">
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="right-main">
+			<p class="wrapp-descr" style="width: 300px;">
+					show rating with some count of stars
+			</p>
+			<div class="code">
+				in less use that mixin
+				.makeRatingCollections(@imagePathInactive: "../img/star_gray_small_collection.svg"; @imagePathActive: "../img/star_yellow_small_collection.svg"; @starWidth: 15px; @countStars: 5; @heightStars: 14px );
+			</div>
+		</section>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="outer">
+		<section class="left-main">
+			<div class="wrapp-drop one-star" style="width: 300px;">
+					<ul class="rating-stars">
+						<li class="active-stars" style="width: 60%;">
+							
+						</li>
+					</ul>
+			</div>
+		</section>
+
+		<section class="right-main">
+			<p class="wrapp-descr" style="width: 300px;">
+					show rating with only ONE star
+			</p>
+			<div class="code">
+					.makeRatingCollections(@imagePathInactive: "../img/star-big-collections.png"; @imagePathActive: "../img/star-big-collections.png"; @starWidth: 19px; @countStars: 1; @heightStars: 16px; @topActive: bottom; @topInactive: top; );
+			</div>
+			
+		</section>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="outer">
+		<section class="left-main">
+			<div class="wrapp-drop" style="width: 300px;">
+
+				
+			</div>
+		</section>
+
+		<section class="right-main">
+			<p class="wrapp-descr" style="width: 300px;">
+					List with icon left
+			</p>
+			<div class="code">
+				$('.simple-list-drop-container').simple_list_drop({
+					isThumbnailShow: true
+				});
+			</div>
+			and added some extra tags in HTML
+			<div class="code">
+				add span(with <strong>[data-simpledrop-thumb]</strong>  attr and <strong>class="thumb"</strong> ) tag before text in list item with <strong>img</strong> tag
+			</div>
+		</section>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="outer">
+		<section class="left-main">
+			<div class="wrapp-drop" style="width: 300px;">
+
+				
+			</div>
+		</section>
+
+		<section class="right-main">
+			<p class="wrapp-descr" style="width: 300px;">
+					List with search in text content list(only strong match)
+			</p>
+			<div class="code">
+				$('.simple-list-drop-container').simple_list_drop({
+					searchInList: true
+				});
+			</div>
+			
+		</section>
+
+		<div class="clear"></div>
+
+	</div>
+
+  </body>
+</html>
